@@ -18,11 +18,6 @@ ntp:
 
 service_routing_protocols_model: multi-agent
 
-router_multicast:
-  ipv4:
-    routing: true
-    software_forwarding: sfe
-
 custom_structured_configuration_spanning_tree:
   mode: mstp
 
