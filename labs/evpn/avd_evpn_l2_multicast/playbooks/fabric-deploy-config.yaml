@@ -19,6 +19,18 @@
       import_role:
         name: arista.avd.eos_config_deploy_eapi
     
+    # Change sfe will take effect only after switch reboot
+    # This task should only be used for cEOS-lab environments
+    - name: Force enable SFE for multicast
+      tags: [sfe]
+      arista.eos.eos_config:
+        parents:
+          - router multicast
+          - ipv4
+        lines:
+          - routing
+          - software-forwarding sfe force
+
     - name: Validate states on EOS devices
       tags: [verify, never]
       import_role:
